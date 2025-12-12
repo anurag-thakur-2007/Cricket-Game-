@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Game</title>
+ <link rel="stylesheet" href="crick.css">
+  
+</head>
+<body>
+  <h1>Bat Ball Stump Game</h1>
+  <h3>A competitive game between you and computer</h3>
+
+  <div>
+    <!-- Bat -->
+    <button class="button" 
+      onclick="
+        let computerMove = genratecomputerchoice();
+        let result_msg = getResult('Bat', computerMove);
+        show('Bat', computerMove, result_msg);
+      "
+    >Bat</button>
+
+    <!-- Ball -->
+    <button class="button"
+      onclick="
+        computerMove = genratecomputerchoice();
+        result_msg = getResult('Ball', computerMove);
+        show('Ball', computerMove, result_msg);
+      "
+    >Ball</button>
+
+    <!-- Stump -->
+    <button class="button"
+      onclick="
+        computerMove = genratecomputerchoice();
+        result_msg = getResult('Stump', computerMove);
+        show('Stump', computerMove, result_msg);
+      "
+    >Stump</button>
+
+    <!-- Reset -->
+    <button onclick="
+      localStorage.clear();
+      resetScore();
+      document.getElementById('result').innerHTML = '<strong>Game Reset!</strong> Start again.';
+      document.getElementById('result').className = '';
+    ">Reset</button>
+  </div>
+
+  <!-- Result display -->
+  <div id='result'><strong>Make your move!</strong></div>
+ <script src="crick.js"></script>
+  
+</body>
+</html>
